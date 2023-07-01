@@ -1,0 +1,148 @@
+.rent-date-range {
+  width: 80vw;
+  max-width: 640px;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+.cars {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1440px;
+  padding: 2.5vw 2.5vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 25px;
+  row-gap: 25px;
+}
+
+.car-container {
+  flex: 1 1 45%;
+  max-width: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  align-self: stretch;
+}
+.car-img {
+  width: 65%;
+  height: 100%;
+  object-fit: scale-down;
+  background: white;
+  padding: 16px;
+}
+.description-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background: #ffdd00;
+}
+.description-left {
+  flex: 2 2 60%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.car-row {
+  display: flex;
+  width: 100%;
+  row-gap: 10px;
+}
+.car-row > * {
+  flex: 1;
+}
+.model,
+.year {
+  font-weight: bolder;
+}
+.rentals-title {
+  background: white;
+  border-radius: 20px;
+  width: 75%;
+  max-width: 960px;
+  font-size: 26px;
+  padding: 20px;
+  text-align: center;
+}
+.rent-btn {
+  flex: 1 1 40%;
+  background: black;
+  color: #ffdd00;
+  align-self: stretch;
+}
+.rentals {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+.rental-container {
+  display: flex;
+  width: 95vw;
+  margin: 0 auto;
+  max-width: 1440px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.rental-container img {
+  flex: 1 1 25%;
+}
+.rental-container .car-description {
+  flex: 2 2 50%;
+  display: flex;
+  flex-direction: column;
+}
+.car-description > * {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+}
+.rental-container .btn {
+  flex: 1 1 25%;
+}
+
+@media only screen and (max-device-width: 600px) {
+  .rent-date-range {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+  }
+  .cars {
+    width: 90vw;
+  }
+  .car-container {
+    flex: 1 1 100%;
+    max-width: 95vw;
+  }
+  .rental-container {
+    width: 90vw;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rental-container img {
+    flex: 1 1 100%;
+  }
+
+  .rental-container .car-description {
+    flex: 2 2 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+  .car-description > * {
+    flex-direction: column;
+  }
+  .rental-container .btn {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.root {
+  width: 100vw;
+  height: 100vh;
+  font-family: Ubuntu, sans-serif !important;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+}
+.bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/bg-image.png");
+}
+.bg-blur {
+  position: absolute;
+  inset: 0;
+  background: #ffffff40;
+  backdrop-filter: blur(10px);
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container > * {
+  margin-bottom: 30px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+.header > *,
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #ffdd00;
+  color: black;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  font-size: 32px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+.header-btn {
+  height: 100%;
+  min-width: max-content;
+  flex: 1;
+}
+.help-counter {
+  height: 100%;
+  flex: 3;
+  text-align: center;
+  font-size: 20px;
+  background: #ffffff80;
+  backdrop-filter: blur(5px);
+  font-weight: normal;
+}
+
+@media only screen and (max-device-width: 600px) {
+  .container > * {
+    margin-bottom: 3vw;
+  }
+  .header {
+    flex-wrap: wrap;
+    min-height: max-content;
+  }
+  .header > * {
+    height: 15vw;
+  }
+  .header-btn {
+    font-size: 5vw;
+  }
+  .help-counter {
+    order: 1;
+    flex-basis: 100vw;
+  }
+}
