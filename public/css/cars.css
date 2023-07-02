@@ -71,3 +71,15 @@ label.filled {
 .car-btns .btn {
   flex: 1;
 }
+
+@media only screen and (max-device-width: 600px) {
+  .car-container > div {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+  .car-btns .btn {
+    width: 100%;
+    padding: 12px 0;
+  }
+}

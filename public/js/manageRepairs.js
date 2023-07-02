@@ -41,7 +41,7 @@ const handleRepairDelete = async (id) => {
 
   if (res.ok) {
     alert("Usunąłeś naprawę");
-    window.location.replace("/rent");
+    window.location.replace("/manageRepairs");
   } else {
     alert("Błąd w trakcie procesu usuwania");
   }
