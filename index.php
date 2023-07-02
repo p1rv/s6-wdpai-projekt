@@ -18,4 +18,5 @@ Routing::get('logout', 'SecurityController');
 Routing::post('apiRegister', 'SecurityController');
 Routing::post('apiRent', 'RentalController');
 Routing::post('apiReturn', 'RentalController');
+Routing::get("services", "ServiceController");
 Routing::run($path);

@@ -1,12 +1,14 @@
 <?php
 
 require_once "Repository.php";
-require_once __DIR__.'/../models/Rental.php';
+require_once __DIR__ . '/../models/Rental.php';
 
-class RentalRepository extends Repository {
-    public function handleRent($carId, $userId, $startDate, $endDate){
+class RentalRepository extends Repository
+{
+    public function handleRent($carId, $userId, $startDate, $endDate)
+    {
         $insert_stmt = $this->database->connect()->prepare('INSERT INTO "tcs"."rentals" ("car_id", "client_id", "start_date", "end_date") VALUES (:carId, :userId, :startDate, :endDate)');
-        
+
         $insert_stmt->bindParam(':carId', $carId, PDO::PARAM_INT);
         $insert_stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
         $insert_stmt->bindParam(':startDate', $startDate, PDO::PARAM_STR);
@@ -15,7 +17,7 @@ class RentalRepository extends Repository {
         $update_stmt = $this->database->connect()->prepare('UPDATE tcs.cars SET "status" = 1 WHERE "id" = :carId');
         $update_stmt->bindParam(':carId', $carId, PDO::PARAM_INT);
 
-        try{
+        try {
             $insert_stmt->execute();
             $update_stmt->execute();
         } catch (PDOException $e) {
@@ -24,10 +26,11 @@ class RentalRepository extends Repository {
         return true;
     }
 
-    public function handleReturn($rentalId, $userId, $price, $issuerId, $carId){
+    public function handleReturn($rentalId, $userId, $price, $issuerId, $carId)
+    {
         $update_stmt = $this->database->connect()->prepare('UPDATE tcs.cars SET "status" = 0 WHERE id = :id');
         $update_stmt->bindParam(':id', $carId, PDO::PARAM_INT);
-        
+
         $insert_stmt = $this->database->connect()->prepare('INSERT INTO tcs.invoices (invoice_no, user_id, rental_id, total, "date", issuer_id) VALUES (:invoice_no, :user_id, :rental_id, :total, :issue_date, :issuer_id)');
         $insert_stmt->bindParam(':invoice_no', uniqid(), PDO::PARAM_STR);
         $insert_stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
@@ -35,17 +38,17 @@ class RentalRepository extends Repository {
         $insert_stmt->bindParam(':total', $price, PDO::PARAM_INT);
         $insert_stmt->bindParam(':issue_date', date('Y-m-d'), PDO::PARAM_STR);
         $insert_stmt->bindParam(':issuer_id', $issuerId, PDO::PARAM_STR);
-        // try{
+        try {
             $update_stmt->execute();
             $insert_stmt->execute();
-            echo $insert_stmt->queryString();
-        // } catch (PDOException $e) {
-        //     return false;
-        // }
-        // return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+        return true;
     }
 
-    public function getRentals() {
+    public function getRentals()
+    {
         $query = 'SELECT
         r.id, r.start_date, r.end_date, 
         u.id as userId, u.email, u.name, u.surname, u.phone, 
@@ -66,7 +69,7 @@ class RentalRepository extends Repository {
         $result = [];
 
         $rentals = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach($rentals as $rental) {
+        foreach ($rentals as $rental) {
             $result[] = new Rental($rental["id"], $rental["userid"], $rental["start_date"], $rental["end_date"], $rental["email"], $rental["name"], $rental["surname"], $rental["phone"], $rental["carid"], $rental["make"], $rental["model"], $rental["image"], $rental["registration"], $rental["status"], $rental["ppd"]);
         }
 

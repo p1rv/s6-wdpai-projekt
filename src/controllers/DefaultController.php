@@ -1,27 +1,32 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__.'/../repository/ClientRepository.php';
+require_once __DIR__ . '/../repository/ClientRepository.php';
 
-class DefaultController extends AppController{
+class DefaultController extends AppController
+{
     private $clientsRepository;
     private $count;
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->clientsRepository = new ClientRepository();
         $this->count = $this->clientsRepository->getClientsNo();
     }
-    public function index() {
+    public function index()
+    {
         // $this->render('landing', ["messages" => ["gsfdg"]]);
-        $this->render('landing', ["headerMessage"=>"Tylu z Was skorzystało już z naszych usług: ".$this->count]);
+        $this->render('landing', ["headerMessage" => "Tylu z Was skorzystało już z naszych usług: " . $this->count]);
     }
 
-    public function login(){
+    public function login()
+    {
         $this->render('login');
     }
 
-    public function register(){
+    public function register()
+    {
         $this->render('register');
     }
 }
