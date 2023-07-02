@@ -42,7 +42,7 @@
         Biuro
       <?php elseif ($_SESSION['userRole'] == 3) : ?>
         <a href="services" class="btn">WYKONANE USŁUGI</a>
-        Zarząd
+        <a href="users" class="btn">UŻYTKOWNICY</a>
       <?php endif; ?>
       <a href="logout" class="btn">WYLOGUJ SIĘ</a>
     </div>

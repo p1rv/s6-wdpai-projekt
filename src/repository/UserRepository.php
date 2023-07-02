@@ -19,6 +19,20 @@ class UserRepository extends Repository
 
         return new User($user['id'], $user['email'], $user['phone'], $user['password'], $user['role'], $user['name'], $user['surname'], $user['city'], $user['street'], $user['house_no'], $user['flat_no'], $user['pesel'], $user['postal_code']);
     }
+    public function getUsers()
+    {
+        $stmt = $this->database->connect()->prepare('SELECT * FROM tcs.users');
+        $stmt->execute();
+
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = [];
+
+        foreach ($users as $user) {
+            $result[] = new User($user['id'], $user['email'], $user['phone'], $user['password'], $user['role'], $user['name'], $user['surname'], $user['city'], $user['street'], $user['house_no'], $user['flat_no'], $user['pesel'], $user['postal_code']);
+        }
+
+        return $result;
+    }
 
     public function getUserById($id)
     {
@@ -52,6 +66,19 @@ class UserRepository extends Repository
         $stmt->bindParam(':flat_no', $flat_no, PDO::PARAM_STR);
         $stmt->bindParam(':postal_code', $postal_code, PDO::PARAM_STR);
         $stmt->bindParam(':pesel', $pesel, PDO::PARAM_STR);
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e;
+            return false;
+        }
+        return true;
+    }
+    public function changeUserRole($id, $newRole)
+    {
+        $stmt = $this->database->connect()->prepare('UPDATE tcs.users SET "role" = :newRole WHERE "id" = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':newRole', $newRole, PDO::PARAM_INT);
         try {
             $stmt->execute();
         } catch (PDOException $e) {
