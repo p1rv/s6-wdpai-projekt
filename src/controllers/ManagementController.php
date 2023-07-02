@@ -32,7 +32,7 @@ class ManagementController extends AppController
     {
 
         if (!$this->isPost()) {
-            return $this->render('register');
+            return $this->render('landing');
         }
 
         $requestBody = file_get_contents("php://input");

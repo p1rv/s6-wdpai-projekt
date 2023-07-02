@@ -40,4 +40,67 @@ class CarController extends AppController
 
         echo json_encode($cars);
     }
+    public function manageCars()
+    {
+        if (isset($_SESSION['userRole']) && $_SESSION['userRole'] > 1) {
+            $cars = $this->carRepository->getCars();
+            $this->render('cars', ["headerMessage" => "Samochody", "cars" => $cars]);
+            return;
+        }
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: $url");
+    }
+    public function apiAddCar()
+    {
+        if (!$this->isPost()) {
+            return $this->render('landing');
+        }
+
+        $make = $_POST["make"];
+        $model = $_POST["model"];
+        $year = $_POST["year"];
+        $color = $_POST["color"];
+        $image = $_POST["image"];
+        $registration = $_POST["registration"];
+        $ppd = $_POST["ppd"];
+
+        $res = $this->carRepository->addCar($make, $model, $year, $color, $image, $registration, $ppd);
+        $cars = $this->carRepository->getCars();
+
+        $this->render("cars", ["headerMessage" => "Samochody", "cars" => $cars, "message" => $res ? "Dodano samochód" : "Błąd dodawania samochodu"]);
+    }
+    public function apiUpdateCar()
+    {
+        if (!$this->isPost()) {
+            return $this->render('landing');
+        }
+
+        $requestBody = file_get_contents("php://input");
+
+        $data = json_decode($requestBody, true);
+
+        $id = $data["id"];
+        $newImg = $data["newImg"];
+        $newPpd = $data["newPpd"];
+
+        $res = $this->carRepository->updateCar($id, $newImg, $newPpd);
+
+        http_response_code($res ? 200 : 400);
+    }
+    public function apiDeleteCar()
+    {
+        if (!$this->isPost()) {
+            return $this->render('landing');
+        }
+
+        $requestBody = file_get_contents("php://input");
+
+        $data = json_decode($requestBody, true);
+
+        $id = $data["id"];
+
+        $res = $this->carRepository->deleteCar($id);
+
+        http_response_code($res ? 200 : 400);
+    }
 }

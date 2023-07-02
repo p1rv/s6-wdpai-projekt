@@ -1,0 +1,73 @@
+.car {
+  background: #ffdd00;
+  padding: 25px;
+  box-sizing: border-box;
+  width: 95vw;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+.car-input {
+  position: relative;
+  background: white;
+}
+.car-input input {
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 60px;
+  font-size: 20px;
+}
+.car-input:focus-within label,
+label.filled {
+  transform: translateY(-200%) !important;
+  font-size: 10px;
+}
+.car-input label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+  transition: all 0.2s;
+}
+.car .btn,
+.car-container .btn {
+  background: black;
+  color: #ffdd00;
+  height: 60px;
+}
+.car .btn:hover,
+.car-container .btn:hover {
+  transform: scale(1.03);
+}
+.btn.red {
+  background: red;
+  color: black;
+}
+
+.car-container {
+  background: white;
+  padding: 25px;
+  box-sizing: border-box;
+  width: 95vw;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+.car-container > div {
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+}
+.car-btns {
+  column-gap: 10px;
+}
+.car-btns .btn {
+  flex: 1;
+}
