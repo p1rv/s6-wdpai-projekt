@@ -39,9 +39,10 @@
       <?php elseif ($_SESSION['userRole'] == 1) : ?>
         Mechanik
       <?php elseif ($_SESSION['userRole'] == 2) : ?>
-        Biuro
+        <a href="manageCars" class="btn">SAMOCHODY</a>
       <?php elseif ($_SESSION['userRole'] == 3) : ?>
         <a href="services" class="btn">WYKONANE USŁUGI</a>
+        <a href="manageCars" class="btn">SAMOCHODY</a>
         <a href="users" class="btn">UŻYTKOWNICY</a>
       <?php endif; ?>
       <a href="logout" class="btn">WYLOGUJ SIĘ</a>
