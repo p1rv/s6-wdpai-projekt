@@ -24,3 +24,12 @@
   flex: 1;
   text-align: center;
 }
+@media only screen and (max-device-width: 600px) {
+  .user-row {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .user {
+    row-gap: 16px;
+  }
+}
