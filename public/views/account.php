@@ -37,7 +37,7 @@
       <?php if ($_SESSION['userRole'] == 0) : ?>
         <a href="services" class="btn">HISTORIA USŁUG</a>
       <?php elseif ($_SESSION['userRole'] == 1) : ?>
-        Mechanik
+        <a href="manageRepairs" class="btn">NAPRAWY</a>
       <?php elseif ($_SESSION['userRole'] == 2) : ?>
         <a href="manageCars" class="btn">SAMOCHODY</a>
       <?php elseif ($_SESSION['userRole'] == 3) : ?>

@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <script src=" public/js/cars.js"></script>
+    <script src="public/js/cars.js"></script>
 </body>
 
 </html>

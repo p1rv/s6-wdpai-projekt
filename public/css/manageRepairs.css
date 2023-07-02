@@ -1,0 +1,76 @@
+.repair {
+  background: #ffdd00;
+  padding: 25px;
+  box-sizing: border-box;
+  width: 95vw;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+.repair-input {
+  position: relative;
+  background: white;
+}
+.repair-input input,
+.repair-input select {
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 60px;
+  font-size: 20px;
+}
+.repair-input:focus-within label,
+label.filled {
+  transform: translateY(-200%) !important;
+  font-size: 10px;
+}
+.repair-input label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+  transition: all 0.2s;
+  background: white;
+  padding: 2px 0;
+}
+.repair .btn,
+.repair-container .btn {
+  background: black;
+  color: #ffdd00;
+  height: 60px;
+}
+.repair .btn:hover,
+.repair-container .btn:hover {
+  transform: scale(1.03);
+}
+.btn.red {
+  background: red;
+  color: black;
+}
+
+.repair-container {
+  background: white;
+  padding: 25px;
+  box-sizing: border-box;
+  width: 95vw;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+.repair-container > div {
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+}
+.repair-btns {
+  column-gap: 10px;
+}
+.repair-btns .btn {
+  flex: 1;
+}
