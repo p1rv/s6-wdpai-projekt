@@ -1,0 +1,35 @@
+.users {
+  background: #ffffff80;
+  width: 95vw;
+  max-width: 960px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+.user {
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background: white;
+}
+.user-row {
+  display: flex;
+  justify-content: space-around;
+}
+.user-row > * {
+  flex: 1;
+  text-align: center;
+}
+@media only screen and (max-device-width: 600px) {
+  .user-row {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .user {
+    row-gap: 16px;
+  }
+}

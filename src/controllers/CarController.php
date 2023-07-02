@@ -40,4 +40,8 @@ class CarController extends AppController
 
         echo json_encode($cars);
     }
+    public function addCar()
+    {
+        $this->render("addCar");
+    }
 }
