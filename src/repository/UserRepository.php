@@ -33,6 +33,20 @@ class UserRepository extends Repository
 
         return $result;
     }
+    public function getUsersEmails()
+    {
+        $stmt = $this->database->connect()->prepare('SELECT id, email FROM tcs.users');
+        $stmt->execute();
+
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = [];
+
+        foreach ($users as $user) {
+            $result[] = ["id" => $user['id'], "email" => $user["email"]];
+        }
+
+        return $result;
+    }
 
     public function getUserById($id)
     {
