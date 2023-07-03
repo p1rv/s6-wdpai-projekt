@@ -1,8 +1,20 @@
 .slider {
   max-width: 96vw;
+  width: 95vw;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 1020px;
+  height: 379px;
+  position: relative;
+}
+.inner-slider {
+  display: flex;
+  transform: translateX(0%);
+  transition: all 0.5s;
 }
 .slider > img {
-  max-width: 96vw;
+  width: 100%;
+  position: absolute;
 }
 .info-bar {
   width: 100vw;

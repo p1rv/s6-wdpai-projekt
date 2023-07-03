@@ -12,7 +12,7 @@ class DefaultController extends AppController
     {
         parent::__construct();
         $this->clientsRepository = new ClientRepository();
-        $this->count = $this->clientsRepository->getClientsNo();
+        $this->count = 12; //$this->clientsRepository->getClientsNo();
     }
     public function index()
     {

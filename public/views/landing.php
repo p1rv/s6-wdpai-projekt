@@ -26,7 +26,12 @@
       <?php endif ?>
       <?php include('public/components/header.php') ?>
       <div class="slider">
-        <img src="public/img/kia.png" alt="Kia Xceed" />
+        <div class="inner-slider">
+          <img src="public/img/kia.png" alt="Kia Xceed" />
+          <img src="public/img/tucson.png" alt="Hyundai Tucson" />
+          <img src="public/img/rs6.png" alt="Audi RS6" />
+          <img src="public/img/kia.png" alt="Kia Xceed" />
+        </div>
       </div>
       <div class="info-bar">
         <div>Działamy 24h na dobę!</div>
@@ -71,6 +76,7 @@
       </div>
     </div>
   </div>
+  <script src="public/js/landing.js"></script>
 </body>
 
 </html>
