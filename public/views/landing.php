@@ -26,11 +26,13 @@
       <?php endif ?>
       <?php include('public/components/header.php') ?>
       <div class="slider">
-        <div class="inner-slider">
-          <img src="public/img/kia.png" alt="Kia Xceed" />
-          <img src="public/img/tucson.png" alt="Hyundai Tucson" />
-          <img src="public/img/rs6.png" alt="Audi RS6" />
-          <img src="public/img/kia.png" alt="Kia Xceed" />
+        <div class="slider-wrapper">
+          <div class="inner-slider">
+            <img src="public/img/kia.png" alt="Kia Xceed" />
+            <img src="public/img/tucson.png" alt="Hyundai Tucson" />
+            <img src="public/img/rs6.png" alt="Audi RS6" />
+            <img src="public/img/kia.png" alt="Kia Xceed" />
+          </div>
         </div>
       </div>
       <div class="info-bar">

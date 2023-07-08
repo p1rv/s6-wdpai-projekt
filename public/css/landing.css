@@ -1,20 +1,25 @@
 .slider {
-  max-width: 96vw;
   width: 95vw;
+  max-width: 1020px;
+  height: min-content;
+}
+.slider-wrapper {
   border-radius: 20px;
   overflow: hidden;
-  max-width: 1020px;
-  height: 379px;
-  position: relative;
 }
 .inner-slider {
-  display: flex;
   transform: translateX(0%);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in;
+  width: min-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: hidden;
 }
-.slider > img {
-  width: 100%;
-  position: absolute;
+.inner-slider > img {
+  flex: 1;
+  height: 100%;
+  object-fit: scale-down;
 }
 .info-bar {
   width: 100vw;
