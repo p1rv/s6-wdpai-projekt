@@ -36,7 +36,7 @@
           </label>
           <label class="login-input">
             <input class="login-input" type="password" name="password" />
-            <img class="show-password" src="public/svg/eyeoff.svg" alt="view" onClick="showPassword('password')" />
+            <img class="show-password" id="password" src="public/svg/eyeoff.svg" alt="view" onClick="showPassword('password')" />
             <label>Hasło</label>
           </label>
           <button class="btn" type="submit">ZALOGUJ SIĘ
@@ -57,7 +57,8 @@
     })
     const showPassword = (inputName) => {
       const passwordRef = document.querySelector(`.login-input[name=${inputName}]`);
-      console.log(passwordRef.getBoundingClientRect())
+      const showPasswordBtnRef = document.querySelector(`img#${inputName}`);
+      showPasswordBtnRef.setAttribute("src", passwordRef.type === "password" ? "public/svg/eyeon.svg" : "public/svg/eyeoff.svg")
       passwordRef.setAttribute("type", passwordRef.type === "password" ? "text" : "password")
     }
     const passwordInput = document.querySelector(".login-input[name='password']");

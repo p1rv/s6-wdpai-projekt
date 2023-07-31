@@ -72,12 +72,12 @@
           </label>
           <label class="login-input">
             <input required class="login-input" type="password" name="password" />
-            <img class="show-password" src="public/svg/eyeoff.svg" alt="view" onClick="showPassword('password')" />
+            <img class="show-password" id="password" src="public/svg/eyeoff.svg" alt="view" onClick="showPassword('password')" />
             <label>Hasło</label>
           </label>
           <label class="login-input">
             <input required class="login-input" type="password" name="password-rep" />
-            <img class="show-password" src="public/svg/eyeoff.svg" alt="view" onClick="showPassword('password-rep')" />
+            <img class="show-password" id="password-rep" src="public/svg/eyeoff.svg" alt="view" onClick="showPassword('password-rep')" />
             <label>Powtórz hasło</label>
           </label>
 
@@ -100,7 +100,8 @@
     })
     const showPassword = (inputName) => {
       const passwordRef = document.querySelector(`.login-input[name=${inputName}]`);
-      console.log(passwordRef.getBoundingClientRect())
+      const showPasswordBtnRef = document.querySelector(`img#${inputName}`);
+      showPasswordBtnRef.setAttribute("src", passwordRef.type === "password" ? "public/svg/eyeon.svg" : "public/svg/eyeoff.svg")
       passwordRef.setAttribute("type", passwordRef.type === "password" ? "text" : "password")
     }
     const passwordInput = document.querySelector(".login-input[name='password']");
